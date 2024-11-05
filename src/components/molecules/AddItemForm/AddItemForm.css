@@ -4,3 +4,17 @@
     gap: 1rem;
     
 }
+.form-box {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    padding: 20px;  
+    .form-row {
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        gap: 20px; 
+
+    }
+    
+}
