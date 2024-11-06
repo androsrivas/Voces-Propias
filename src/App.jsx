@@ -1,12 +1,12 @@
+import Menu from "./components/molecules/Menu/Menu";
 
-import './App.css';
-import AddItemForm from "./components/molecules/AddItemForm/AddItemForm";
+
 
 function App() {
 
   return (
     <>
-      <AddItemForm />
+      <Menu />
     </>
   )
 }
