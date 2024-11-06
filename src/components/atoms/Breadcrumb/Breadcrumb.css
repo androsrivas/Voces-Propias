@@ -1,0 +1,13 @@
+.bc {
+    background-color: transparent;
+    ul {
+        list-style-type: none;
+        display: flex;
+        gap: 6px;
+        padding: 5px;
+        color: #110A33;
+        li {
+            padding: 4px;    
+        }
+    }
+}

@@ -1,12 +1,11 @@
-import Menu from "./components/molecules/Menu/Menu";
-
+import BreadCrumb from "./components/atoms/Breadcrumb/Breadcrumb";
 
 
 function App() {
 
   return (
     <>
-      <Menu />
+      <BreadCrumb />
     </>
   )
 }
