@@ -1,4 +1,4 @@
-const Textarea = ({ value, onChange, rows }) => {
+const TextArea = ({ value, onChange, rows }) => {
     return (
         <textarea
             value={value}
@@ -9,4 +9,4 @@ const Textarea = ({ value, onChange, rows }) => {
     );
 };
 
-export default Textarea;
+export default TextArea;
