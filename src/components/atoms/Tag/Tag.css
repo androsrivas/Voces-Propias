@@ -1,3 +1,15 @@
-p {
-    color: #F5F5F5;
+.tagContainer {
+    padding: 0 10px;
+    background-color: #8775E3;
+    border: solid #8775E3 2px;
+    width: 100px;
+    text-align: center;
+    p {
+        color: #F5F5F5;
+    }
+
+}
+.tagContainer:hover {
+    border: solid #F5F5F5 2px;
+    border-radius: 20px;
 }

@@ -1,13 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Tag.css";
 
 
-function Tag({ icon, text }) {
+function Tag({ text }) {
   return (
-    <>
-        <FontAwesomeIcon icon={ icon } />
+    <div className="tagContainer">
+        {/* { icon } */}
         <p>{ text }</p>
-    </>
+    </div>
   )
 }
 
