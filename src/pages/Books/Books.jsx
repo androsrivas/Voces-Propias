@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllBooks } from "../../services/ApiBooksService";
+import { Link } from "react-router-dom";
 
 const Books = () => {
     const [books, setBooks] = useState([]);
@@ -15,15 +16,18 @@ const Books = () => {
 
   return (
     <>
-    {
-        books.map((book) => (
-            <div key={ book.id }>
-                <h4>{ book.title }</h4>
-                <p>{ book.author }</p>
-                <img src={ book.cover } alt="Portada del libro" />
-            </div>
-        ))
-    }
+        <Link to={"/app/new-book"}><button>Añadir libro</button></Link>
+        <div>
+            {
+                books.map((book) => (
+                    <div key={ book.id }>
+                        <h4>{ book.title }</h4>
+                        <p>{ book.author }</p>
+                        <img src={ book.cover } alt="Portada del libro" />
+                    </div>
+                ))
+            }
+        </div>
     </>
   )
 }
