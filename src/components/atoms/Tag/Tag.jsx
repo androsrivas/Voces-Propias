@@ -1,6 +1,5 @@
 import "./Tag.css";
 
-
 function Tag({ text }) {
   return (
     <div className="tagContainer">

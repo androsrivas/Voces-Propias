@@ -1,0 +1,22 @@
+.menu {
+    background-color: #8775E3;
+    width: 200px;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* TODO: convertir logo en un NavLink para mejor accesibilidad */
+    .logo {
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tags {
+        color: #F5F5F5;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+}

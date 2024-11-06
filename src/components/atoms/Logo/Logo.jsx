@@ -1,10 +1,10 @@
 import pic from "../../../assets/logo.png";
 
-function Logo() {
+function Logo({ className }) {
   return (
-    <>
-        <img src={ pic } alt="logo de Voces Propias" />
-    </>
+    <div className="logoContainer">
+        <img className={ className } src={ pic } alt="logo de Voces Propias" />
+    </div>
   )
 }
 

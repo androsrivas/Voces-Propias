@@ -4,14 +4,14 @@ import { FaGear } from "react-icons/fa6";
 import "./TagSection.css";
 
 
-function TagSection() {
+function TagSection({ className }) {
   return (
-    <section className="tagSection">
+    <div className={ className }>
         <Tag icon={ FaBook } text="Catálogo"/>
         <Tag icon={ FaPen } text="Autoras"/>
         <Tag icon={ FaUser } text="Usuarios" />
         <Tag icon={ FaGear } text="Configuración"/>
-    </section>
+    </div>
   )
 }
 
