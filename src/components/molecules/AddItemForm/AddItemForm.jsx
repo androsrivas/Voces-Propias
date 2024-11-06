@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Input from '../../atoms/Input'; 
 import FileInput from '../../atoms/FileInput';
 import Select from '../../atoms/Select'; 
+import TextArea from '../../atoms/TextArea'; 
 
 
 const AddItemForm = () => {
@@ -11,7 +12,8 @@ const AddItemForm = () => {
     const [price, setPrice] = useState('');
     const [isbn, setIsbn] = useState('');
     const [stock, setStock] = useState('');
-    const [textarea, Textarea] = useState('');
+    const [language, setLanguage] = useState('');
+    const [synopsis, setSynopsis] = useState('');
 
 
 
@@ -43,17 +45,29 @@ const AddItemForm = () => {
         { value: 'in-stock', label: 'Con stock' },
         { value: 'out-of-stock', label: 'Sin stock' }
     ];
+    const handleLanguageChange = (event) => {
+        setLanguage(event.target.value);
+    };
+
+    const languageOptions = [
+        { value: 'spanish', label: 'Español' },
+        { value: 'english', label: 'Inglés' }
+
+    ];
+
+    const handleSynopsisChange = (event) => {
+        setSynopsis(event.target.value);
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Datos ingresados:', { title, author, file, price, isbn, stock });
+        console.log('Datos ingresados:', { title, author, file, price, isbn, stock, synopsis });
     };
     
 
-
     return (
         <form onSubmit={handleSubmit} className="form-container form-box">
-            <div className='form-row'>
+            <div className='form-row title'>
                 <label>Título</label>
                 <Input value={title} onChange={handleTitleChange} />
             </div>
@@ -72,9 +86,14 @@ const AddItemForm = () => {
                 <label>Stock</label>
                 <Select value={stock} onChange={handleStockChange} options={stockOptions} />
             </div>
-            <div className="form-row">
+            <div className='form-row'>
+            <label>Idioma</label>
+            <Select value={language} onChange={handleLanguageChange} options={languageOptions} />
+            </div>
+
+            <div className='form-row'>
                 <label>Sinopsis</label>
-                <Input value={synopsis} onChange={handleSynopsisChange} type="textarea" rows="4" />
+                <TextArea value={synopsis} onChange={handleSynopsisChange} rows="4" />
             </div>
             <div className='form-row'>
                 <button type="submit">Guardar</button>
