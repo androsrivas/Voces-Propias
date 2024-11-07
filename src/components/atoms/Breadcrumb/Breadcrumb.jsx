@@ -3,23 +3,27 @@ import { BsSlash } from "react-icons/bs";
 import { Link, useLocation } from "react-router-dom";
 import "./Breadcrumb.css";
 
-function Breadcrumb({ icon: Icon, className }) {
+function Breadcrumb({ icon: Icon, breadcrumbMap }) {
   const location = useLocation();
-  const path = location.pathname.split("/").filter((segment) => segment);
+  const path = location.pathname
+    .split("/")
+    .filter((segment) => segment && segment !== "app");
+  
   return (
     <div className="bcContainer">
-        <ul className="breadcrumbd">
-          {/* Home icon as the first breadcrumb */}
+        <ul className="breadcrumb">
+          {/* Home icon*/}
           <li>
-            <Link to={"/app"}>{Icon && <Icon className="homeIcon"/>}</Link>
+            <Link to={"/app"}>{Icon && <Icon className="icon"/>}</Link>
           </li>
 
           {/* Breadcrumb separator */}
-          {path.length > 0 && (
+          {path.length > 1 && (
             <li>
               <BsSlash className="separatorIcon"/>
             </li>
           )} 
+
           {/* Dynamic breadcrumb */}
           {path.map((segment, index) => {
             const pathTo = `/app/${path.slice(0, index + 1).join("/")}`;
@@ -30,10 +34,10 @@ function Breadcrumb({ icon: Icon, className }) {
                 <li>
                   {!isLast ? (
                     <Link to={ pathTo } className="bcLink">
-                      {decodeURIComponent(segment)}
+                      {breadcrumbMap[segment] || segment}
                     </Link>
                   ) : (
-                    <span className="bcCurrent">{decodeURIComponent(segment)}</span>
+                    <span className="bcCurrent">{breadcrumbMap[segment] || segment}</span>
                   )}
                 </li>   
               </React.Fragment>
