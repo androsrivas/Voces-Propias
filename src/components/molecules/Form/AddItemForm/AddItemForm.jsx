@@ -96,15 +96,16 @@ const AddItemForm = () => {
                         </div>
                         <div className="stock-item">
                             <label htmlFor="stock">Stock</label>
-                            <select
+                            <input
                                 id="stock"
                                 name="stock"
                                 value={formData.stock}
                                 onChange={handleChange}
+                                type="number"
+                                min="0"
                             >
-                                <option value="inStock">En stock</option>
-                                <option value="outOfStock">Agotado</option>
-                            </select>
+                                
+                            </input>
                         </div>
                     </div>
 
