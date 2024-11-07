@@ -1,10 +1,10 @@
 import "./Tag.css";
 
-function Tag({ text }) {
+function Tag({ icon: Icon, text }) {
   return (
     <div className="tagContainer">
-        {/* { icon } */}
-        <p>{ text }</p>
+        {Icon && <Icon className="tagIcon"/>}
+        <span>{ text }</span>
     </div>
   )
 }
