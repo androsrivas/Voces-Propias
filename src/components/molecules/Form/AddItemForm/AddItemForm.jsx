@@ -1,104 +1,155 @@
-import React, { useState } from 'react';
-import Input from '../../atoms/Input'; 
-import FileInput from '../../atoms/FileInput';
-import Select from '../../atoms/Select'; 
-import TextArea from '../../atoms/TextArea'; 
-
+import React, { useState } from "react";
+import "./AddItemForm.css";
 
 const AddItemForm = () => {
-    const [title, setTitle] = useState('');
-    const [author, setAuthor] = useState('');
-    const [file, setFile] = useState('');
-    const [price, setPrice] = useState('');
-    const [isbn, setIsbn] = useState('');
-    const [stock, setStock] = useState('');
-    const [language, setLanguage] = useState('');
-    const [synopsis, setSynopsis] = useState('');
+    const [formData, setFormData] = useState({
+        title: "",
+        author: "",
+        cover: null,
+        price: "",
+        isbn: "",
+        stock: "inStock",
+        language: "spanish",
+        synopsis: "",
+    });
 
-
-
-    const handleTitleChange = (event) => {
-        setTitle(event.target.value); 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
     };
 
-    const handleAuthorChange = (event) => {
-        setAuthor(event.target.value); 
+    const handleFileChange = (e) => {
+        const { name, files } = e.target;
+        setFormData({
+            ...formData,
+            [name]: files[0],
+        });
     };
 
-    const handleFileChange = (event) => {
-        setFile(event.target.value); 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Form submitted", formData);
     };
-
-    const handlePriceChange = (event) => {
-        setPrice(event.target.value); 
-    };
-
-    const handleIsbnChange = (event) => {
-        setIsbn(event.target.value); 
-    };
-
-    const handleStockChange = (event) => {
-        setStock(event.target.value);
-    };
-
-    const stockOptions = [
-        { value: 'in-stock', label: 'Con stock' },
-        { value: 'out-of-stock', label: 'Sin stock' }
-    ];
-    const handleLanguageChange = (event) => {
-        setLanguage(event.target.value);
-    };
-
-    const languageOptions = [
-        { value: 'spanish', label: 'Español' },
-        { value: 'english', label: 'Inglés' }
-
-    ];
-
-    const handleSynopsisChange = (event) => {
-        setSynopsis(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('Datos ingresados:', { title, author, file, price, isbn, stock, synopsis });
-    };
-    
 
     return (
-        <form onSubmit={handleSubmit} className="form-container form-box">
-            <div className='form-row title'>
-                <label>Título</label>
-                <Input value={title} onChange={handleTitleChange} />
-            </div>
-            <div className='form-row'>
-                <label>Autora</label>
-                <Input value={author} onChange={handleAuthorChange} />
+        <div className="form-container">
+            <div className="form-box">
+                <form onSubmit={handleSubmit}>
+                    <div className="form-row">
+                        <div className="title">
+                            <label htmlFor="title">Título del libro</label>
+                            <input
+                                id="title"
+                                name="title"
+                                type="text"
+                                value={formData.title}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
 
-                <label>Portada</label>
-                <FileInput setFile={handleFileChange} />
-            </div>
-            <div className='form-row'>
-                <label>Precio</label>
-                <Input value={price} onChange={handlePriceChange} />
-                <label>ISBN</label>
-                <Input value={isbn} onChange={handleIsbnChange} />
-                <label>Stock</label>
-                <Select value={stock} onChange={handleStockChange} options={stockOptions} />
-            </div>
-            <div className='form-row'>
-            <label>Idioma</label>
-            <Select value={language} onChange={handleLanguageChange} options={languageOptions} />
-            </div>
+                    <div className="author-cover-row">
+                        <div className="author-item">
+                            <label htmlFor="author">Autora</label>
+                            <input
+                                id="author"
+                                name="author"
+                                type="text"
+                                value={formData.author}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="cover-item">
+                            <label htmlFor="cover">Portada</label>
+                            <input
+                                id="cover"
+                                name="cover"
+                                type="file"
+                                onChange={handleFileChange}
+                            />
+                        </div>
+                    </div>
 
-            <div className='form-row'>
-                <label>Sinopsis</label>
-                <TextArea value={synopsis} onChange={handleSynopsisChange} rows="4" />
+                    <div className="price-isbn-stock-row">
+                        <div className="price-item">
+                            <label htmlFor="price">Precio</label>
+                            <input
+                                id="price"
+                                name="price"
+                                type="number"
+                                value={formData.price}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="isbn-item">
+                            <label htmlFor="isbn">ISBN</label>
+                            <input
+                                id="isbn"
+                                name="isbn"
+                                type="text"
+                                value={formData.isbn}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="stock-item">
+                            <label htmlFor="stock">Stock</label>
+                            <select
+                                id="stock"
+                                name="stock"
+                                value={formData.stock}
+                                onChange={handleChange}
+                            >
+                                <option value="inStock">En stock</option>
+                                <option value="outOfStock">Agotado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="language-row">
+                        <div className="language-item">
+                            <label htmlFor="language">Idioma</label>
+                            <select
+                                id="language"
+                                name="language"
+                                value={formData.language}
+                                onChange={handleChange}
+                            >
+                                <option value="spanish">Español</option>
+                                <option value="english">Inglés</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="synopsis-row">
+                        <div className="synopsis-item">
+                            <label htmlFor="synopsis">Sinopsis</label>
+                            <textarea
+                                id="synopsis"
+                                name="synopsis"
+                                value={formData.synopsis}
+                                onChange={handleChange}
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <div className="button-row">
+                        <button className="SaveButton" type="submit">
+                            Guardar
+                        </button>
+                        <button
+                            className="CancelButton"
+                            type="button"
+                            onClick={() => console.log("Acción cancelada")}
+                        >
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div className='form-row'>
-                <button type="submit">Guardar</button>
-            </div>
-        </form>
+        </div>
     );
 };
 
