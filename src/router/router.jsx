@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import CreateBook from "../pages/CreateBook/CreateBook";
-import Books from "../pages/Books/Books";
-import Layout from "../layout/Layout";
+import GetBooks from "../pages/Admin/GetBooks/GetBooks";
+import Layout from "../layout/Admin/Layout";
+import AddItemForm from "../components/molecules/Form/AddItemForm/AddItemForm";
 // A medida que tengamos las pages hechas, se añaden en element en su correspondiente path
 
 export const router = createBrowserRouter([
@@ -11,12 +11,12 @@ export const router = createBrowserRouter([
         element:<Layout />,
         children: [
             {
-                path: "/app/books",
-                element: <Books />
+                path: "/app/new-book",
+                element: <AddItemForm />
             },
             {
-                path: "/app/new-book",
-                element: <CreateBook />
+                path: "/app/books",
+                element: <GetBooks />
             }
         ]
     },

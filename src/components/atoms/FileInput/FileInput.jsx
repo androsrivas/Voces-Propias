@@ -1,9 +1,9 @@
-const FileInput = ( { file, setFile}) => {
+const FileInput = ( { file, setFile }) => {
     return (
         <input
         type="file"
         file={file}
-        setFile={setFile}
+        onChange={setFile}
         className="FileInput-class"
         />
     )
