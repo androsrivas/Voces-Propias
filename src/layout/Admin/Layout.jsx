@@ -1,14 +1,19 @@
 import { Outlet } from "react-router-dom";
-// import Menu from "../components/organisms/Menu/Menu";
-// import Header from "../components/organisms/Menu/Menu";
-// import Footer from "../components/organisms/Footer/Footer";
+import Menu from "../../components/molecules/Menu/Menu";
+import Header from "../../components/molecules/Header/Header";
+import "./Layout.css";
+
 
 const Layout = () => {
   return (
-    <>
-        <Outlet />
+    <body className="app">
+      <Menu className="menu"/> 
+      <Header className="header"/>
+      <div className="outlet">
+        <Outlet/>
+      </div>
         
-    </>
+    </body>
   )
 }
 
