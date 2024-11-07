@@ -9,4 +9,7 @@
         border: 1px solid #110A33;
         border-radius: 10px;
     }
+    .btn-logout:hover {
+        border: 2px solid #110A33;
+    }
 }
