@@ -5,15 +5,16 @@ import "./Layout.css";
 
 
 const Layout = () => {
+
   return (
-    <body className="app">
+    <div className="app">
       <Menu className="menu"/> 
       <Header className="header"/>
       <div className="outlet">
         <Outlet/>
       </div>
         
-    </body>
+    </div>
   )
 }
 
