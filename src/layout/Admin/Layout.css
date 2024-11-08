@@ -1,0 +1,27 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    .menu {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+    }
+    .header {
+        position: fixed;
+        top: 0;
+        left: 200px;
+        width: calc(100% - 200px);
+        height: 100px;
+        box-sizing: border-box;
+    }
+    .outlet {
+        margin-top: 60px;
+        margin-left: 200px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
