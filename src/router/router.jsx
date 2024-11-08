@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import GetBooks from "../pages/Admin/GetBooks/GetBooks";
-import LayoutAdmin from "../layout/LayoutAdmin/LayoutAdmin";
+import LayoutAdmin from "../layout/Admin/LayoutAdmin";
 import AddItemForm from "../components/molecules/Form/AddItemForm/AddItemForm";
 import ProductListView from "../pages/User/ProductListView/ProductListView";
 

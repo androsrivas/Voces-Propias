@@ -11,18 +11,11 @@ function ProductListView() {
                 setProducts(response.data);  
             })
     }, []);
-
+    console.log(products)
     return (
         <div className="product-list">
             {products.map(product => (
-                <Card 
-                    key={product.id} 
-                    title={product.title} 
-                    author={product.author} 
-                    cover={product.cover} 
-                    price={product.price} 
-                    description={product.description} 
-                />
+                <Card product={product}/>
             ))}
         </div>
     );
