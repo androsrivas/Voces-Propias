@@ -7,17 +7,17 @@ import ProductListView from "../pages/User/ProductListView/ProductListView";
 // A medida que tengamos las pages hechas, se añaden en element en su correspondiente path
 
 export const router = createBrowserRouter([
-    // Primero el path para cliente admin
+    // path for testing
+    {
+        path: "/",
+        element: <Test />
+    },
     {
         path: "/app",
         element:<LayoutAdmin />,
         children: [
             {
-                path: "/app/new-book",
-                element: <AddItemForm />
-            },
-            {
-                path: "/app/books",
+                path: "books",
                 element: <GetBooks />
             },
 

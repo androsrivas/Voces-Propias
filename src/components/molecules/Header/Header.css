@@ -1,0 +1,15 @@
+.header {
+    background-color: #AFA8FF;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    .btn-logout {
+        background-color: #AFA8FF;
+        color: #110A33;
+        border: 1px solid #110A33;
+        border-radius: 10px;
+    }
+    .btn-logout:hover {
+        border: 2px solid #110A33;
+    }
+}

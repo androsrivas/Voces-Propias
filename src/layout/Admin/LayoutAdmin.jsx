@@ -5,10 +5,14 @@ import { Outlet } from "react-router-dom";
 
 const LayoutAdmin = () => {
   return (
-    <>
-        <Outlet />
+    <div className="app">
+      <Menu className="menu"/> 
+      <Header className="header"/>
+      <div className="outlet">
+        <Outlet/>
+      </div>
         
-    </>
+    </div>
   )
 }
 
