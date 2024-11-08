@@ -1,10 +1,7 @@
 
-
-const MenuMobile = () => {
+function MenuMobile() {
   return (
-    <>
-        <p>Este es mi menu version mobile</p>
-    </>
+    <div>Este es mi menu mobile</div>
   )
 }
 
