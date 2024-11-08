@@ -1,15 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import GetBooks from "../pages/Admin/GetBooks/GetBooks";
-import Layout from "../layout/Admin/Layout";
+import LayoutAdmin from "../layout/Admin/LayoutAdmin";
 import AddItemForm from "../components/molecules/Form/AddItemForm/AddItemForm";
-import Card from '../components/molecules/Card/Card';
+import ProductListView from "../pages/User/ProductListView/ProductListView";
+
 // A medida que tengamos las pages hechas, se añaden en element en su correspondiente path
 
 export const router = createBrowserRouter([
     // Primero el path para cliente admin
     {
         path: "/app",
-        element:<Layout />,
+        element:<LayoutAdmin />,
         children: [
             {
                 path: "/app/new-book",
@@ -19,10 +20,6 @@ export const router = createBrowserRouter([
                 path: "/app/books",
                 element: <GetBooks />
             },
-            {
-                path: "/app/home",
-                element: <Card />
-            }
 
         ]
     },
@@ -32,16 +29,12 @@ export const router = createBrowserRouter([
         element: "",
         children: [
             {
-                path: "/home",
-                element: ""
-            },
-            {
                 path: "/books",
-                element: "",
+                element: <ProductListView />,
                 children: [
                     {
                         path: "/books:id",
-                        element: ""
+                        element: <ProductListView /> //no existe aún 
                     }
                 ]
             }

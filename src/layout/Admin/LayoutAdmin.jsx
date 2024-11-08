@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 // import Header from "../components/organisms/Menu/Menu";
 // import Footer from "../components/organisms/Footer/Footer";
 
-const Layout = () => {
+const LayoutAdmin = () => {
   return (
     <>
         <Outlet />
@@ -12,4 +12,4 @@ const Layout = () => {
   )
 }
 
-export default Layout
+export default LayoutAdmin
