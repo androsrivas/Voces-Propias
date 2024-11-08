@@ -1,7 +1,10 @@
+import "./MenuMobile.css";
 
-function MenuMobile() {
+function MenuMobile({icon: Icon}) {
   return (
-    <div>Este es mi menu mobile</div>
+    <aside className="menuMobile">
+      {Icon && <Icon icon={ Icon } className="icon"/>}
+    </aside>
   )
 }
 

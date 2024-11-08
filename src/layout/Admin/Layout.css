@@ -25,3 +25,12 @@
         align-items: center;
     }
 }
+
+@media screen (max-width: 768px) {
+    .menuMobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 60px;
+    }
+}
