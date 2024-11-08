@@ -3,6 +3,8 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    width: calc(100% - 200px);
+    height: 80px;
     .btn-logout {
         background-color: #AFA8FF;
         color: #110A33;

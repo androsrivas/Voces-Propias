@@ -1,12 +1,12 @@
 import Logo from "../../atoms/Logo/Logo";
-import TagSection from "../TagSection/TagSection";
+import Nav from "../Nav/Nav";
 import "./Menu.css";
 
 function Menu() {
   return (
     <section className="menu">
         <Logo className="logo"/>
-        <TagSection className="tags"/>
+        <Nav className="nav"/>
     </section>
   )
 }

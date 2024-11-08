@@ -1,10 +1,9 @@
 import Tag from "../../atoms/Tag/Tag";
 import { FaBook, FaPen, FaUser } from "react-icons/fa";
 import { FaGear } from "react-icons/fa6";
-import "./TagSection.css";
 
 
-function TagSection({ className }) {
+function Nav({ className }) {
   return (
     <div className={ className }>
         <Tag icon={ FaBook } text="Catálogo"/>
@@ -15,4 +14,4 @@ function TagSection({ className }) {
   )
 }
 
-export default TagSection
+export default Nav

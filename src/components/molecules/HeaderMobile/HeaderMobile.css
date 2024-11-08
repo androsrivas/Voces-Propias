@@ -1,0 +1,13 @@
+.m-header {
+    background-color: #AFA8FF;
+    padding: 15px;
+    width: 100vw;
+    height: 90px;
+    display: flex;
+    justify-content: flex-end;
+    .icon {
+        color: #110A33;
+        width: 60px;
+        height: 60px;
+    }
+}
