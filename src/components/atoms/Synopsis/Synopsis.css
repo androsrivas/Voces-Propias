@@ -1,0 +1,36 @@
+.synopsis-container {
+}
+
+.synopsis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-button {
+    display: inline-block;
+}
+
+.synopsis-text {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .synopsis-text {
+        display: none;
+    }
+
+    .synopsis-text.open {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .toggle-button {
+        display: none;
+    }
+
+    .synopsis-text {
+        display: block;
+    }
+}

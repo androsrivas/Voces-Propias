@@ -1,0 +1,29 @@
+.app {
+    .menu-desktop {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .header {
+        position: fixed;
+        top: 0;
+        left: 200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .fixed-section {
+        display: flex;
+        .menu-mobile {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .header-mobile {
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+    }
+    
+}
