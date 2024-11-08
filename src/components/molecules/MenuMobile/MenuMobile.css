@@ -1,9 +1,9 @@
 .menuMobile {
+    background: transparent;
     background-color: #8775E3;
     padding: 15px;
     width: 90px;
     height: 90px;
-    border-radius: 0 15px 15px 0;
     .icon {
         color: #F5F5F5;
         width: 60px;
