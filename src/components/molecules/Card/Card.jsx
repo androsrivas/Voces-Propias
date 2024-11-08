@@ -5,6 +5,8 @@ import Synopsis from '../../atoms/Synopsis/Synopsis';
 
 const Card = ({ product }) => { 
     const [isFavorite, setIsFavorite] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);  
+
     const toggleFavorite = () => {
         setIsFavorite(prevState => !prevState);
     };
@@ -13,6 +15,10 @@ const Card = ({ product }) => {
         const words = description.split(" "); 
         const shortSynopsis = words.slice(0, 13).join(" "); 
         return shortSynopsis;
+    };
+
+    const handleReadMore = () => {
+        setIsExpanded(true);  
     };
 
     return (
@@ -24,12 +30,10 @@ const Card = ({ product }) => {
                     <img src={product.cover} alt={product.title} />
                 </div>
                 <p className="product-price">Precio: {product.price} €</p>
-                <p className="product-stock">Stock: {product.stock}</p>
-                <p className="product-isbn">ISBN: {product.ISBN}</p>
                 <p className="product-language">Idioma: {product.language}</p>
             </div>
-            <Synopsis text={`${getSynopsis(product.description)}...`} />
-            <a href="#" className="read-more-link">Leer más...</a>
+            <Synopsis text={isExpanded ? product.description : `${getSynopsis(product.description)}...`} />
+            {!isExpanded && <a href="#" className="read-more-link" onClick={handleReadMore}>Leer más...</a>}
             <AddToCartButton />
             <div className="fav-icon" onClick={toggleFavorite}>
                 {isFavorite ? "♥" : "♡"}

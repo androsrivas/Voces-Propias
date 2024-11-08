@@ -24,11 +24,11 @@ export const router = createBrowserRouter([
     // Segundo el path para usuario
     {
         path: "/",
-        element: "",
+        element: <ProductListView />,  
         children: [
             {
                 path: "/books",
-                element: <ProductListView />,
+                element: <ProductListView />, 
             },
             {
                 path: "/books/:id",  
