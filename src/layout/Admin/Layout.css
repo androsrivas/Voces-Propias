@@ -1,13 +1,20 @@
-.app {
+.admin-layout {   
+    display: flex;
     .menu-desktop {
         position: fixed;
         top: 0;
         left: 0;
     }
-    .header {
+    .header-desktop {
         position: fixed;
         top: 0;
         left: 200px;
+    }
+    
+    .outlet {
+        position: fixed;
+        top: 200px;
+        left: 250px;
     }
 }
 
