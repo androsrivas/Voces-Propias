@@ -9,7 +9,7 @@ const GetBooks = () => {
 
   return (
     <>
-        <Link to={"/new-book"}><button>Añadir libro</button></Link>
+        <Link to={"/dashboard/new-book"}><button>Añadir libro</button></Link>
         <Table data={ books }/>
     </>
   )
