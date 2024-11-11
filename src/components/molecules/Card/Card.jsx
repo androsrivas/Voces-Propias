@@ -12,10 +12,11 @@ const Card = ({ product }) => {
         setIsFavorite(prevState => !prevState);
     };
 
-    const getSynopsis = (description, maxLength = 100) => {
+    const getSynopsis = (description = "", maxLength = 30) => {
         const shortSynopsis = description.slice(0, maxLength);
         return shortSynopsis.length < description.length ? shortSynopsis + "..." : shortSynopsis;
     };
+    
 
     const handleReadMore = () => {
         setIsExpanded(true);  
