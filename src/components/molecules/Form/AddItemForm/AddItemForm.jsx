@@ -1,43 +1,57 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useBook from "../../../../hooks/useBook/useBook";
 import "./AddItemForm.css";
 
 const AddItemForm = () => {
-    const [formData, setFormData] = useState({
+    const { addBook } = useBook();
+    const  initialState = {
         title: "",
         author: "",
-        cover: null,
-        price: "",
+        cover: "",
+        price: 0,
         isbn: "",
-        stock: "inStock",
-        language: "spanish",
+        stock: 0,
+        language: "",
         synopsis: "",
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
     };
+    const [formData, setFormData] = useState(initialState);
 
-    const handleFileChange = (e) => {
-        const { name, files } = e.target;
-        setFormData({
-            ...formData,
-            [name]: files[0],
-        });
-    };
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted", formData);
+
+        const errors = {};
+        if(!formData.title) errors.title = "Title is required";
+        if(!formData.author) errors.author = "Author is required";
+        if(!formData.synopsis) errors.synopsis = "Synopsis is required";
+        if(formData.price < 0) errors.price = "Price cannot be less than 0";
+        if(!/^\d{13}$/.test(formData.isbn)) errors.isbn = "ISBN must be 13 digits long";
+
+        if (Object.keys(errors).length > 0 ) {
+            setFormErrors(errors);
+            return;
+        }
+
+        try {
+            await addBook(formData);
+            navigate("/books");
+        } catch (error) {
+            console.error("Error adding book: ", error);
+        }
+
     };
+
+    const handleCancel = () => {
+        setFormData(initialState);
+        navigate("/books");
+    }
 
     return (
         <div className="form-container">
             <div className="form-box">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={ handleSubmit }>
                     <div className="form-row">
                         <div className="title">
                             <label htmlFor="title">Título del libro</label>
@@ -45,12 +59,11 @@ const AddItemForm = () => {
                                 id="title"
                                 name="title"
                                 type="text"
-                                value={formData.title}
-                                onChange={handleChange}
+                                value={ formData.title }
+                                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                             />
                         </div>
                     </div>
-
                     <div className="author-cover-row">
                         <div className="author-item">
                             <label htmlFor="author">Autora</label>
@@ -59,7 +72,7 @@ const AddItemForm = () => {
                                 name="author"
                                 type="text"
                                 value={formData.author}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, author: e.target.value })}
                             />
                         </div>
                         <div className="cover-item">
@@ -68,11 +81,10 @@ const AddItemForm = () => {
                                 id="cover"
                                 name="cover"
                                 type="file"
-                                onChange={handleFileChange}
+                                onChange={(e) => setFormData({ ...formData, cover: e.target.value })}
                             />
                         </div>
                     </div>
-
                     <div className="price-isbn-stock-row">
                         <div className="price-item">
                             <label htmlFor="price">Precio</label>
@@ -81,7 +93,7 @@ const AddItemForm = () => {
                                 name="price"
                                 type="number"
                                 value={formData.price}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, price: e.target.value })}
                             />
                         </div>
                         <div className="isbn-item">
@@ -91,7 +103,7 @@ const AddItemForm = () => {
                                 name="isbn"
                                 type="text"
                                 value={formData.isbn}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, isbn: e.target.value })}
                             />
                         </div>
                         <div className="stock-item">
@@ -100,15 +112,13 @@ const AddItemForm = () => {
                                 id="stock"
                                 name="stock"
                                 value={formData.stock}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
                                 type="number"
                                 min="0"
                             >
-                                
                             </input>
                         </div>
                     </div>
-
                     <div className="language-row">
                         <div className="language-item">
                             <label htmlFor="language">Idioma</label>
@@ -116,14 +126,13 @@ const AddItemForm = () => {
                                 id="language"
                                 name="language"
                                 value={formData.language}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, language: e.target.value })}
                             >
                                 <option value="spanish">Español</option>
                                 <option value="english">Inglés</option>
                             </select>
                         </div>
                     </div>
-
                     <div className="synopsis-row">
                         <div className="synopsis-item">
                             <label htmlFor="synopsis">Sinopsis</label>
@@ -131,11 +140,10 @@ const AddItemForm = () => {
                                 id="synopsis"
                                 name="synopsis"
                                 value={formData.synopsis}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, synopsis: e.target.value })}
                             ></textarea>
                         </div>
                     </div>
-
                     <div className="button-row">
                         <button className="SaveButton" type="submit">
                             Guardar
@@ -143,7 +151,7 @@ const AddItemForm = () => {
                         <button
                             className="CancelButton"
                             type="button"
-                            onClick={() => console.log("Acción cancelada")}
+                            onClick={ handleCancel }
                         >
                             Cancelar
                         </button>

@@ -4,15 +4,17 @@ import Card from "../../../components/molecules/Card/Card";
 
 function ProductListView() {
     const [products, setProducts] = useState([]); 
+    
     useEffect(() => {
-        axios.get("http://localhost:3000/products")
+        axios.get("http://localhost:4000/books")  
             .then(response => {
-                setProducts(response.data); 
+                setProducts(response.data);  
             })
     }, []);
+    console.log(products)
 
     return (
-        <div className="product-list">
+        <div className="cards-container">
             {products.map(product => (
                 <Card key={product.id} product={product} />
             ))}

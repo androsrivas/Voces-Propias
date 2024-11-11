@@ -5,10 +5,17 @@
         display: flex;
         align-items: center;
         list-style-type: none;
-        .icon, .separatorIcon {
+        .icon {
             color: #110A33;
             width: 30px;
             height: 30px;
+        }
+        .separatorIcon {
+            color: #110A33;
+            width: 15px;
+            height: 15px;
+            margin-left: 5px;
+
         }
         .bcLink {
             color: #110A33;
