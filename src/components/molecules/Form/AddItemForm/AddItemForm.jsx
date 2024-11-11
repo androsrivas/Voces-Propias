@@ -36,7 +36,7 @@ const AddItemForm = () => {
 
         try {
             await addBook(formData);
-            navigate("/books");
+            navigate("/dashboard/books");
         } catch (error) {
             console.error("Error adding book: ", error);
         }
@@ -45,7 +45,7 @@ const AddItemForm = () => {
 
     const handleCancel = () => {
         setFormData(initialState);
-        navigate("/books");
+        navigate("/dashboard/books");
     }
 
     return (

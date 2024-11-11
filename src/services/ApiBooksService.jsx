@@ -8,6 +8,12 @@ const getAllBooks = async () => {
     return response.data;
 }
 
+// BOOK DETAIL VIEW
+const getBook = async (id) => {
+    const response = await axios.get(`${apiBooksUrl}/${id}`);
+    return response.data;
+}
+
 // NEW BOOK VIEW
 const createBook = async (newBook) => {
     const response = await axios.post(apiBooksUrl, newBook);
@@ -28,6 +34,7 @@ const deleteBook = async (id, book) => {
 
 export {
     getAllBooks,
+    getBook,
     createBook,
     updateBook,
     deleteBook,

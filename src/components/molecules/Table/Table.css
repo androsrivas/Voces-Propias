@@ -1,0 +1,29 @@
+.table-container {
+    .table-action, .table-title {
+        background-color: #110A33;
+        color: #F5F5F5;
+        text-align: justify;
+        padding: 10px;
+    }
+    .item-section {
+        border: 1px solid black;
+    }
+    .icon-section {
+        display: flex;
+        gap: 5px;
+        .fa-eye, .fa-pen, .fa-trash {
+            width: 20px;
+            height: 20px;
+            padding: 2px;
+        } 
+        .fa-eye {
+            background-color: #91E4FF;
+        }
+        .fa-pen {
+            background-color: #FCCEAA;
+        }
+        .fa-trash {
+            background-color: #E36357;
+        }
+    }
+}
