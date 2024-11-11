@@ -9,11 +9,11 @@ const Synopsis = ({ text, maxWords = 30, url }) => {
     };
 
     const getShortenedText = () => {
-        const words = text.split(' ');
+        const words = (text || "").split(' ');
         if (words.length > maxWords) {
             return words.slice(0, maxWords).join(' ') + '...';
         }
-        return text;
+        return text || "";
     };
 
     return (

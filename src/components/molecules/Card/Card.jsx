@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Card.css";
 import AddToCartButton from "../../atoms/Button/AddtocartButton/AddtocartButton";
 import Synopsis from '../../atoms/Synopsis/Synopsis';
+import "./Card.css";
 
 const Card = ({ product }) => { 
     console.log(product);
@@ -12,7 +12,7 @@ const Card = ({ product }) => {
         setIsFavorite(prevState => !prevState);
     };
 
-    const getSynopsis = (description, maxLength = 100) => {
+    const getSynopsis = (description = "", maxLength = 30) => {
         const shortSynopsis = description.slice(0, maxLength);
         return shortSynopsis.length < description.length ? shortSynopsis + "..." : shortSynopsis;
     };
@@ -35,7 +35,6 @@ const Card = ({ product }) => {
             <Synopsis text={isExpanded ? product.description : `${getSynopsis(product.description)}...`} />
             {!isExpanded && <a href="#" className="read-more-link" onClick={handleReadMore}>Leer más...</a>}
 
-            {}
             <div className="card-actions">
                 <AddToCartButton />
                 <div className="fav-icon" onClick={toggleFavorite}>
