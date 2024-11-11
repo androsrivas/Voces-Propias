@@ -1,35 +1,16 @@
-import { useEffect, useState } from "react";
-import { getAllBooks } from "../../../services/ApiBooksService";
+import { useContext } from "react";
+import { BookContext } from "../../../context/BookContext/BookContext";
 import { Link } from "react-router-dom";
+import Table from "../../../components/molecules/Table/Table";
+import "./GetBooks.css";
 
 const GetBooks = () => {
-    const [books, setBooks] = useState([]);
-
-    const getAllBooksFromService = async () => {
-        const response = await getAllBooks();
-        setBooks(response);
-    }
-
-    useEffect(() => {
-        getAllBooksFromService();
-    }, []);
+    const books = useContext(BookContext);
 
   return (
     <>
-        <Link to={"/app/new-book"}><button>Añadir libro</button></Link>
-        {/* TODO: añadir table para mostrar todos los datos de la db */}
-        <div>
-            
-            {
-                books.map((book) => (
-                    <div key={ book.id }>
-                        <h4>{ book.title }</h4>
-                        <p>{ book.author }</p>
-                        <img src={ book.cover } alt="Portada del libro" />
-                    </div>
-                ))
-            }
-        </div>
+        <Link to={"/new-book"}><button>Añadir libro</button></Link>
+        <Table data={ books }/>
     </>
   )
 }

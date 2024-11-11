@@ -17,8 +17,8 @@ const Layout = () => {
   return (
     <div className="admin-layout">
       <BookProvider>
-        {width < 768 ? <MenuMobile className="menu-mobile" icon={ <FaHome /> }/> : <Menu className="menu-desktop"/>}
-        {width < 768 ? <HeaderMobile className="header-mobile" icon={ <MdOutlineLogout/>} /> : <Header className="header-desktop"/>}
+        {width < 768 ? <MenuMobile className="menu-mobile" icon={ FaHome }/> : <Menu className="menu-desktop"/>}
+        {width < 768 ? <HeaderMobile className="header-mobile" icon={ MdOutlineLogout } /> : <Header className="header-desktop"/>}
         <main className="outlet">
           <Outlet />
         </main>
