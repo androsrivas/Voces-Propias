@@ -22,18 +22,14 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        path: "/",
+        path: "/app",
         element: <LayoutUser />, 
         children: [
-     
             {
-                path: "/books",
+                path: "books",
                 element: <ProductListView />, 
             },
-            {
-                path: "/books/:id",  
-                element: "", 
-            }
+           
         ]
     }
 ]);
