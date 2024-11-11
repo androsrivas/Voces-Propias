@@ -16,6 +16,7 @@ const Card = ({ product }) => {
         const shortSynopsis = description.slice(0, maxLength);
         return shortSynopsis.length < description.length ? shortSynopsis + "..." : shortSynopsis;
     };
+    
 
     const handleReadMore = () => {
         setIsExpanded(true);  
