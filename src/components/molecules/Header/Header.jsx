@@ -6,8 +6,8 @@ import "./Header.css";
 function Header() {
   const breadcrumbMap = {
     app: "Dashboard",
-    books: "Books",
-    "new-book": "Add New Book",
+    books: "Catálogo",
+    "new-book": "Añadir libro",
   };
 
   return (
