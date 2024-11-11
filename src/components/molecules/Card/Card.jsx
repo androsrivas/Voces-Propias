@@ -12,10 +12,9 @@ const Card = ({ product }) => {
         setIsFavorite(prevState => !prevState);
     };
 
-    const getSynopsis = (description) => {
-        const words = description.split(" "); 
-        const shortSynopsis = words.slice(0, 13).join(" "); 
-        return shortSynopsis;
+    const getSynopsis = (description, maxLength = 100) => {
+        const shortSynopsis = description.slice(0, maxLength);
+        return shortSynopsis.length < description.length ? shortSynopsis + "..." : shortSynopsis;
     };
 
     const handleReadMore = () => {
@@ -35,9 +34,13 @@ const Card = ({ product }) => {
             </div>
             <Synopsis text={isExpanded ? product.description : `${getSynopsis(product.description)}...`} />
             {!isExpanded && <a href="#" className="read-more-link" onClick={handleReadMore}>Leer más...</a>}
-            <AddToCartButton />
-            <div className="fav-icon" onClick={toggleFavorite}>
-                {isFavorite ? "♥" : "♡"}
+
+            {}
+            <div className="card-actions">
+                <AddToCartButton />
+                <div className="fav-icon" onClick={toggleFavorite}>
+                    {isFavorite ? "♥" : "♡"}
+                </div>
             </div>
         </div>
     );

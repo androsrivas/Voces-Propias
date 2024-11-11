@@ -1,60 +1,54 @@
-
 .cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;  
-    justify-content: center;  
+    gap: 10px; 
+    justify-content: center;
+    padding-bottom: 40px;
 }
-
 
 .Card {
     flex: 1 1 45%;  
-    max-width: 45%;  
+    max-width: 100%;  
     background-color: #E1DDF8;
     border: 1px solid #110A33;
-    padding: 16px;
+    padding: 10px;
     border-radius: 8px;
     display: flex;
-    flex-direction: column;  
-    height: 100%;  
-    box-sizing: border-box; 
-    justify-content: flex-start;  
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    min-height: 300px;
 }
 
 @media (min-width: 768px) {
     .Card {
         flex: 1 1 22%;  
-        max-width: 22%;  
+        max-width: 28%;
     }
+}
+
     .product-cover {
-        width: 350px !important;  
-        height: 500px !important;
+        width: 9rem;
+        height: 13rem;
         display: flex;
-        justify-content: center;  
+        justify-content: center;
         align-items: center;
+        border: 1px solid #110A33;
+        box-sizing: border-box;
+        margin: auto;
     }
-    .product-cover img { 
-        width: 100% !important;  
-        height: 100% !important;
+    .product-cover img {
+        width: 7rem;
+        height: 11rem;
         object-fit: cover;
-        justify-content: center;  
-        align-items: center; 
-        padding-left: 70px;
-    }
-    .product-title {
-        font-size: 1.5rem !important;
-        height: 5rem !important; 
-    }
-    .product-author {
-        font-size:  1.3rem !important; 
+        border-radius: 8px;
+        margin: auto; 
     }
 
-    
-}
 
 .product-price {
     font-size: 0.8 rem;
-
 }
 
 .product-info {
@@ -65,7 +59,7 @@
 }
 
 .product-title {
-    font-size:  0.8rem;
+    font-size:  1rem;
     font-weight: bold;
     margin: 0;
     color: #555; 
@@ -75,11 +69,13 @@
 }
 
 .product-author {
-    font-size:  0.8rem;
+    font-size:  0.rem;
     color: #555;
     margin: 8px 0;
+    height: 3rem; 
     min-height: 20px;  
 }
+
 .product-cover {
     width: 8rem;  
     height: 12rem;
@@ -105,7 +101,6 @@
     margin-top: 16px;
     flex-grow: 2;  
     font-size: 0.8 rem;
-    
 }
 
 .toggle-button {
@@ -122,7 +117,19 @@
     border-width: 1.5px;
     font-size: 0.8rem;
     font-weight: bold;
-    padding: 10px;
     cursor: pointer;
+    height: 40px;
+    width: 90%;
+}
 
+
+.card-actions {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 16px; 
+}
+
+.add-to-cart-btn, .fav-icon {
+    margin: 0 8px; 
 }
