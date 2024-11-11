@@ -15,14 +15,14 @@ const createBook = async (newBook) => {
 }
 
 // UPDATE BOOK VIEW
-const updateBook = async (book) => {
-    const response = await axios.put(apiBooksUrl, book);
+const updateBook = async (id, book) => {
+    const response = await axios.put(`${apiBooksUrl}/${id}`, book);
     return response.data;
 }
 
 // DELETE BOOK VIEW
-const deleteBook = async (book) => {
-    const response = await axios.delete(apiBooksUrl, book);
+const deleteBook = async (id, book) => {
+    const response = await axios.delete(`${apiBooksUrl}/${id}`, book);
     return response.data;
 }
 

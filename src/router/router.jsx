@@ -1,13 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import GetBooks from "../pages/Admin/GetBooks/GetBooks";
 import Layout from "../layout/Admin/Layout";
-import AddItemForm from "../components/molecules/Form/AddItemForm/AddItemForm";
+import GetBooks from "../pages/Admin/GetBooks/GetBooks";
+import CreateBook from "../pages/Admin/CreateBook/CreateBook";
 
 export const router = createBrowserRouter([
-    
     {
         path: "/",
-        element:<Layout />,
+        element: <Layout />,
         children: [
             {
                 path: "books",
@@ -15,7 +14,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "new-book",
-                element: <AddItemForm />
+                element: <CreateBook />
             }
         ]
     }
