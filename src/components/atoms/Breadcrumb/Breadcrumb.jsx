@@ -1,5 +1,5 @@
 import React from "react";
-import { BsSlash } from "react-icons/bs";
+import { IoIosArrowForward } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
 import "./Breadcrumb.css";
 
@@ -16,11 +16,14 @@ function Breadcrumb({ icon: Icon, breadcrumbMap }) {
           <li>
             <Link to={"/app"}>{Icon && <Icon className="icon"/>}</Link>
           </li>
+          <li>  
+            <IoIosArrowForward className="separatorIcon"/>
+          </li>
 
           {/* Breadcrumb separator */}
           {path.length > 1 && (
             <li>
-              <BsSlash className="separatorIcon"/>
+              <IoIosArrowForward className="separatorIcon"/>
             </li>
           )} 
 

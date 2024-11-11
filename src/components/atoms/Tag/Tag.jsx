@@ -3,7 +3,7 @@ import "./Tag.css";
 function Tag({ icon: Icon, text }) {
   return (
     <div className="tagContainer">
-        {Icon && <Icon className="tagIcon"/>}
+        {Icon && <Icon icon={ Icon } className="icon"/>}
         <span>{ text }</span>
     </div>
   )
