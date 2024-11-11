@@ -9,7 +9,11 @@ export const router = createBrowserRouter([
         element: <Layout />,
         children: [
             {
-                path: "books",
+                path: "/app/new-book",
+                element: <AddItemForm />
+            },
+            {
+                path: "/app/books",
                 element: <GetBooks />
             },
             {
