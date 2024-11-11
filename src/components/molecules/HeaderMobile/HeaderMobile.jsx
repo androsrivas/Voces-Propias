@@ -3,7 +3,7 @@ import "./HeaderMobile.css";
 function HeaderMobile({ icon: Icon }) {
   return (
     <header className="m-header">
-        {Icon && <Icon icon={ Icon } className="icon"/>}
+        {Icon && <Icon className="icon"/>}
     </header>
   )
 }
