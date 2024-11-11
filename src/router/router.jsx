@@ -5,7 +5,7 @@ import CreateBook from "../pages/Admin/CreateBook/CreateBook";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/dashboard",
         element: <Layout />,
         children: [
             {
