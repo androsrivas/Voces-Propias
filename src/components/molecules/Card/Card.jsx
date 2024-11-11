@@ -4,7 +4,7 @@ import AddToCartButton from "../../atoms/Button/AddtocartButton/AddtocartButton"
 import Synopsis from '../../atoms/Synopsis/Synopsis';
 
 const Card = ({ product }) => { 
-    console.log(product)
+    console.log(product);
     const [isFavorite, setIsFavorite] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);  
 

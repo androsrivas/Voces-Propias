@@ -1,0 +1,17 @@
+.LayoutUser {
+    background-color: #8775E3;
+    
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 40%; 
+    height: 30px; 
+    box-sizing: border-box;
+    background-color: #8775E3; 
+}
+.logo {
+    max-height: 80%; 
+    width: auto; 
+}

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import GetBooks from "../pages/Admin/GetBooks/GetBooks";
 import LayoutAdmin from "../layout/Admin/LayoutAdmin";
+import LayoutUser from "../layout/User/LayoutUser";
 import AddItemForm from "../components/molecules/Form/AddItemForm/AddItemForm";
 import ProductListView from "../pages/User/ProductListView/ProductListView";
 
@@ -24,8 +25,12 @@ export const router = createBrowserRouter([
     // Segundo el path para usuario
     {
         path: "/",
-        element: <ProductListView />,  
+        element: <LayoutUser />, 
         children: [
+            {
+                path: "/",  
+                element: <ProductListView />
+            },
             {
                 path: "/books",
                 element: <ProductListView />, 

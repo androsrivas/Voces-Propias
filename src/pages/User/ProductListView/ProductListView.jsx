@@ -12,10 +12,11 @@ function ProductListView() {
             })
     }, []);
     console.log(products)
+
     return (
-        <div className="product-list">
+        <div className="cards-container">
             {products.map(product => (
-                <Card product={product}/>
+                <Card key={product.id} product={product} />
             ))}
         </div>
     );

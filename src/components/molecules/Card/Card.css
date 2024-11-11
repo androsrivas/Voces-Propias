@@ -1,31 +1,98 @@
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;  
+    justify-content: center;  
+}
+
+
 .Card {
-    border: 1px solid #ddd;
+    flex: 1 1 45%;  
+    max-width: 45%;  
+    background-color: #E1DDF8;
+    border: 1px solid #110A33;
     padding: 16px;
-    width: 300px;
-    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;  
+    height: 100%;  
+    box-sizing: border-box; 
+    justify-content: flex-start;  
+}
+
+@media (min-width: 768px) {
+    .Card {
+        flex: 1 1 22%;  
+        max-width: 22%;  
+    }
+    .product-cover {
+        width: 350px !important;  
+        height: 500px !important;
+        display: flex;
+        justify-content: center;  
+        align-items: center;
+    }
+    .product-cover img { 
+        width: 100% !important;  
+        height: 100% !important;
+        object-fit: cover;
+        justify-content: center;  
+        align-items: center; 
+        padding-left: 70px;
+    }
+    .product-title {
+        font-size: 1.5rem !important;
+        height: 5rem !important; 
+    }
+    .product-author {
+        font-size:  1.3rem !important; 
+    }
+
+    
+}
+
+.product-price {
+    font-size: 0.8 rem;
+
 }
 
 .product-info {
-    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;  
+    flex-grow: 1;  
+    justify-content: flex-start;  
 }
 
 .product-title {
-    font-size: 18px;
+    font-size:  0.8rem;
     font-weight: bold;
     margin: 0;
-    color: #555;
+    color: #555; 
+    height: 4rem; 
+    display: flex;
+    align-items: flex-start;
 }
 
 .product-author {
-    font-size: 14px;
+    font-size:  0.8rem;
     color: #555;
     margin: 8px 0;
+    min-height: 20px;  
+}
+.product-cover {
+    width: 8rem;  
+    height: 12rem;
+    display: flex; 
+    border-color: #110A33;
 }
 
 .product-cover img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+    width: 7rem;  
+    height: 11rem;
+    object-position: center; 
+    border-radius: 8px; 
+    object-fit: cover;
 }
 
 .fav-icon {
@@ -36,10 +103,26 @@
 
 .synopsis-container {
     margin-top: 16px;
+    flex-grow: 2;  
+    font-size: 0.8 rem;
+    
 }
 
 .toggle-button {
     cursor: pointer;
     background: none;
     border: none;
+}
+
+.add-to-cart-btn {
+    background-color: #9EFFCB;
+    color: #110A33;
+    border-color: #110A33;
+    border-radius: 10px;
+    border-width: 1.5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+
 }
