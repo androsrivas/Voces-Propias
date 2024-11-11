@@ -9,16 +9,12 @@ export const router = createBrowserRouter([
         element: <Layout />,
         children: [
             {
-                path: "/app/new-book",
-                element: <AddItemForm />
-            },
-            {
-                path: "/app/books",
-                element: <GetBooks />
-            },
-            {
                 path: "new-book",
                 element: <CreateBook />
+            },
+            {
+                path: "books",
+                element: <GetBooks />
             }
         ]
     }
